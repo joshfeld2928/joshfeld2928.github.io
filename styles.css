@@ -15,6 +15,7 @@ body {
 nav {
     background-color:slategray;
     padding: 1rem;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
 
 nav ul{
@@ -38,8 +39,7 @@ nav ul li a:hover {
 }
 
 #home {
-    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('linkprof.jpeg');
-    background-size: cover;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.3)), url('linkprof.jpeg') center/cover no-repeat;    background-size: cover;
     background-position: center;
     height: 100vh;
     display: flex;
@@ -47,7 +47,7 @@ nav ul li a:hover {
     justify-content: center;
     align-items: center;
     text-align: center;
-    color: #fff;
+    color: #3b393914;
 }
 
 #home h1 {
