@@ -16,6 +16,32 @@
             justify-content: center;
             font-size: 24px;
         } 
+        ul {
+            list-style-type: none;
+            padding: 0;
+            }
+
+        li {
+            position: relative;
+            margin-bottom: 10px;
+            cursor: pointer;
+            }
+
+        .summary {
+            display: none;
+            position: absolute;
+            left: 120px;
+            top: 0;
+            background: #f2f2f2;
+            padding: 8px;
+            border-radius: 6px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.15);
+            width: 200px;
+            }
+
+        li:hover .summary {
+            display: block;
+            }
     </style>
 </head>
 
@@ -40,16 +66,34 @@
         and probability for the betterment of medical practices. 
         Specifically, I have interests in Computational Neuroscience and Health Informatics.<br>
         <!--note that despite this break the paragraph is still one big block of text on the website-->
-        <br> projects and research experience span from statistical analysis and machine learning to database design.
+        <br> My projects and research experience span from statistical analysis and machine learning to database design.
         </p>
     </div>
+
 <!--main page: section 2, projects-->
     <div id="projects">
         <h2>Projects</h2>
             <ul>
-                <li>Project 1 </li> 
-                <li>Project 2</li>
-                <li>Project 3</li>
+                <li>
+                    joshfeld2928.github.io
+                    <div class="summary">
+                        This website! I used HTML for webpage structure, and CSS for styling. This has been an ongoing project that is still in development. 
+                        Any critiques or ideas are greatly appreciated.</div>
+                </li> 
+                <li>
+                    Pneumonia Neural Network
+                    <div class="summary">
+                        Implemented a Convolutional Neural Network (TensorFlow) in python to detect if an x-ray of one’s chest indicates pneumonia; was able to increase model accuracy over time by 10% via ensemble and boosting algorithms.
+                        Utilized Scikit-learn and Matplotlib for statistics (loss, recall, etc.) as well as confusion matrix.
+                    </div>
+                </li>
+                <li>
+                    Hillside Inventory Database
+                    <div class="summary">
+                        Worked in team of 3 to create market inventory database using SQL and web-based programming.
+                        Developed scalable database with real time inventory visibility for students, workers, and suppliers. 
+                    </div>
+                </li>
         </ul>
     </div>
 </main>
