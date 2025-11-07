@@ -29,20 +29,17 @@
 
         .summary {
             display: none;
-            position: relative;
-            left: 100%;
-            top: 0;
+            position: absolute;
+            left: 0;
+            top: 100%;
             background: #f2f2f2;
             padding: 8px;
             border-radius: 6px;
             box-shadow: 0 2px 5px rgba(0,0,0,0.15);
             width: 250px;
-            /*z-index: 10; comment out for now*/
+            z-index: 10;
             }
 
-        li:hover .summary {
-            display: block;
-            }
         
         html {
         scroll-behavior: smooth;
@@ -115,7 +112,7 @@
                     </div>
                 </li>
                 <li>
-                    <span class="summary-name">Weak Signal Propogation Reporter Regression Analysis</span>
+                    <span class="project-name">Weak Signal Propogation Reporter Regression Analysis</span>
                     <div class="summary">
                         Analyzed dataset on radio signals from calls that were both transmitted and received; EDA performed in R Markdown.
                         Partitioned data (caret) was used to train and test linear regression model; ggplot used for visualization.
@@ -123,7 +120,7 @@
                     </div>
                 </li>
                 <li>
-                    <span class="summary-name">Tumor Cell Regression Analysis</span>
+                    <span class="project-name">Tumor Cell Regression Analysis</span>
                     <div class="summary">
                         Analyzed dataset on tumor cell traits; exploratory data analysis done in Jupyter Notebook.
                         Notebook contained statistical outlier analysis and correlation map to use for logistic regression model.
