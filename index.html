@@ -86,7 +86,7 @@
     <div id="experience">
         <h2>Experience</h2>
         INSERT EXPERIENCE HERE<br>
-        test
+        TEST
     </div>
 
 <!--main page: section 2, projects-->
@@ -158,14 +158,13 @@
 </div>
 
 <script>
-    const projects = document.querySelectorAll('.projects li');
+    const projects = document.querySelectorAll('#projects li');
     const modal = document.getElementById('modal');
     const modalContent = document.getElementById('modal-content');
 
     projects.forEach(project => {
         project.addEventListener('click', () => {
-            const summary = project.nextElementSibling.innerHTML;
-
+            const summary = item.querySelector('.summary').innerHTML;
             modalContent.innerHTML = summary;   // put summary in modal
             modal.style.display = 'flex';        // show modal
         });
