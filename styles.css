@@ -58,7 +58,7 @@ nav ul li a:hover {
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
 
-#projects ul {
+#projects ul, #experiences ul {
     display: flex;
     flex-wrap: wrap;
     gap: 1rem;
@@ -66,15 +66,8 @@ nav ul li a:hover {
     padding: 0;
 }
 
-#projects ul li {
-    background-color: #f9f9f9;
-    padding: 1rem;
-    border-radius: 5px;
-    flex: 1 1 300px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-}
 
-#projects ul li:hover {
+#projects ul li:hover, #experiences ul li:hover {
     transform: translateY(-5px);
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
     transition: transform 0.2s ease, box-shadow 0.2s ease;
