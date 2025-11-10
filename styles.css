@@ -69,8 +69,11 @@ nav ul li a:hover {
 
 #projects ul li:hover, #experiences ul li:hover {
     transform: translateY(-5px);
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
     transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+#projects li {
+    flex: 0 0 calc(25% - 3rem); 
 }
 
 #home h1 {
