@@ -59,6 +59,33 @@
             margin-bottom: 0.5rem;
         }
 
+        .project-name, .experience {
+            display: inline-flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background: white;
+            border-radius: 50%;
+            width: 140px;
+            height: 140px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            margin: 2rem;
+            text-align: center;
+            font-weight: 600;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        /* Add a hover effect */
+        .project-name:hover, .experience:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Make sure the sections have padding */
+        #experience, #projects {
+            padding: 2rem 4rem;
+        }
+
         html {
         scroll-behavior: smooth;
         }
@@ -87,7 +114,7 @@
         Specifically, I have interests in Computational Neuroscience and Health Informatics.<br>
         <!--note that despite this break the paragraph is still one big block of text on the website-->
         <br> My projects and research experience span from statistical analysis and machine learning to database design.
-        <br>---THIS WEBSITE IS STILL IN DEVELOPMENT---
+        <br>---THIS WEBSITE IS STILL IN DEVELOPMENT1---
     </p>
     </div>
 
