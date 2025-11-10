@@ -52,11 +52,26 @@
             box-shadow: 0 4px 15px rgba(0,0,0,0.3);
             position: relative;
         }
-        .project-logo {
+        .logo { /*for now just keep general logo class*/
             width: 60px;      
             height: 60px;
             object-fit: contain;
             margin-bottom: 0.5rem;
+        }
+
+            .experience {
+        width: 120px;                    
+        height: 120px;                   
+        border-radius: 50%;               
+        background-color: #f2f2f2;        
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        cursor: pointer;
+        transition: all 0.2s ease;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.15);
         }
 
         html {
@@ -95,8 +110,8 @@
         <h2>Experience</h2>
             <ul>
                 <li>
-                    <span class="project-name">joshfeld2928.github.io</span>
-                    <img src="images/ur_logo.png" alt="UR logo" class="project-logo">
+                    <span class="experience">joshfeld2928.github.io</span>
+                    <img src="images/ur_logo.png" alt="UR logo" class="logo">
                     <div class="summary">
                         TEST SUMMARY FOR UR HAEFNER LAB
                     </div>
@@ -171,7 +186,7 @@
 </div>
 
 <script>
-    const projects = document.querySelectorAll('#projects li');
+    const projects = document.querySelectorAll('#projects li, #experience li');
     const modal = document.getElementById('modal');
     const modalContent = document.getElementById('modal-content');
 
