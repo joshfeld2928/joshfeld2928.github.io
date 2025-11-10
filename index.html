@@ -59,33 +59,45 @@
             margin-bottom: 0.5rem;
         }
 
-        .project-name, .experience {
-            display: inline-flex;
-            flex-direction: column;
-            align-items: center;
+        #experiences ul, #projects ul {
+            display: flex;
+            flex-wrap: wrap;
             justify-content: center;
-            background: white;
-            border-radius: 10%;
-            width: 140px;
-            height: 140px;
-            box-shadow: black;
-            margin: 2rem;
-            text-align: center;
-            font-weight: 600;
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
         }
 
+        .project-name, .experience {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 140px;
+        height: 140px;
+        border-radius: 10%;
+        background: transparent !important;
+        font-weight: 600;
+        text-align: center;
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
 
-        .projects:hover, .experience:hover {
+
+        .project-name:hover, .experience:hover {
             transform: scale(1.05);
             box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
         }
 
         /* Make sure the sections have padding */
-        #experience, #projects {
+        #experiences, #projects {
             padding: 2rem 4rem;
         }
-
+        #experiences li, #projects li {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin: 1.5rem;
+    }
         html {
         scroll-behavior: smooth;
         }
@@ -98,7 +110,7 @@
         <nav>
             <ul>
                 <li><a href="#about">About</a></li>
-                <li><a href="#experience">Experience</a></li>
+                <li><a href="#experiences">Experience</a></li>
                 <li><a href="#projects">Projects</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
@@ -118,7 +130,7 @@
     </p>
     </div>
 
-    <div id="experience">
+    <div id="experiences">
         <h2>Experience</h2>
             <ul>
                 <li>
@@ -212,7 +224,7 @@
 </div>
 
 <script>
-    const projects = document.querySelectorAll('#projects li, #experience li');
+    const projects = document.querySelectorAll('#projects li, #experiences li');
     const modal = document.getElementById('modal');
     const modalContent = document.getElementById('modal-content');
 
