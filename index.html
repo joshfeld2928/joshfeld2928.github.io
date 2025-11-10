@@ -24,7 +24,6 @@
         li {
             position: relative;
             margin-bottom: 10px;
-            cursor: pointer;
             }
 
         .summary {
@@ -98,6 +97,20 @@
         align-items: center;
         margin: 1.5rem;
     }
+        
+        /* Projects: entire li is clickable */
+        #projects li {
+            cursor: pointer;
+        }
+        
+        /* Experiences: only the experience span is clickable */
+        #experiences li {
+            cursor: default;
+        }
+        
+        #experiences .experience {
+            cursor: pointer;
+        }
         html {
         scroll-behavior: smooth;
         }
@@ -132,7 +145,7 @@
 
     <div id="experiences">
         <h2>Experience</h2>
-            <ul>
+            <ol>
                 <li>
                     <span class="experience">Haefner Lab, UR</span>
                     <!--<img src="images/ur_logo.png" alt="UR logo" class="logo"> no image for now-->
@@ -153,7 +166,7 @@
                             INSERT SUMMARY FOR KOSEC
                     </div>
                 </li>
-            </ul>
+            </ol>
     </div>
 
 <!--main page: section 2, projects-->
@@ -224,15 +237,32 @@
 </div>
 
 <script>
-    const projects = document.querySelectorAll('#projects li, #experiences li');
+    // Projects: click on entire li
+    const projects = document.querySelectorAll('#projects li');
     const modal = document.getElementById('modal');
     const modalContent = document.getElementById('modal-content');
 
     projects.forEach(project => {
         project.addEventListener('click', () => {
-            const summary = project.querySelector('.summary').innerHTML;
-            modalContent.innerHTML = summary;   // put summary in modal
-            modal.style.display = 'flex';        // show modal
+            const summary = project.querySelector('.summary');
+            if (summary) {
+                modalContent.innerHTML = summary.innerHTML;   // put summary in modal
+                modal.style.display = 'flex';        // show modal
+            }
+        });
+    });
+
+    // Experiences: click only on the experience span
+    const experiences = document.querySelectorAll('#experiences .experience');
+    experiences.forEach(experience => {
+        experience.addEventListener('click', (e) => {
+            e.stopPropagation(); // Prevent event from bubbling to li
+            const li = experience.closest('li');
+            const summary = li.querySelector('.summary');
+            if (summary) {
+                modalContent.innerHTML = summary.innerHTML;   // put summary in modal
+                modal.style.display = 'flex';        // show modal
+            }
         });
     });
 
