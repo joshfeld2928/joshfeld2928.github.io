@@ -75,7 +75,7 @@
         width: 140px;
         height: 140px;
         border-radius: 10%;
-        background: rgba(0, 0, 139, 0.2); /* Dark blue, mostly transparent */
+        background: rgba(0, 0, 139, 0.2);
         border: 2px solid black;
         font-weight: 600;
         text-align: center;
@@ -89,7 +89,6 @@
             box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
         }
 
-        /* Make sure the sections have padding */
         #experiences, #projects {
             padding: 2rem 4rem;
         }
@@ -100,12 +99,10 @@
         margin: 1.5rem;
     }
         
-        /* Projects: entire li is clickable */
         #projects li {
             cursor: pointer;
         }
         
-        /* Experiences: only the experience span is clickable */
         #experiences li {
             cursor: default;
         }
@@ -133,7 +130,7 @@
     </header>
 
 <main>
-    <div class = 'gradient-section' id = 'about'> 
+    <div id = 'about'> 
         <img src = "images/linkprof.jpeg" alt = "Failed to Load Profile Picture" height = 250>
         <p>
         Welcome to my website! My name is Joshua, I am a data science student eager to pursue roles where I can leverage machine learning 
@@ -149,24 +146,16 @@
         <h2>Experience</h2>
             <ol>
                 <li>
-                    <span class="experience">Haefner Lab, UR</span>
-                    <!--<img src="images/ur_logo.png" alt="UR logo" class="logo"> no image for now-->
-                    <div class="summary">
-                        TEST SUMMARY FOR UR HAEFNER LAB
-                    </div>
+                   <h3>Haefner Lab, UR</h3>
+                   <p>TEST SUMMARY FOR UR HAEFNER LAB</p>
                 </li>
                 <li>
-                    <span class="experience">Fifer Lab, CU & NYSPI</span>
-                    <!--<img src="images/cu_nyspi.png" alt="CU NYSPI logo" class="logo"> no image-->
-                    <div class="summary">
-                        TEST SUMMARY FOR FIFER LAB
-                        </div>
+                    <h3>Fifer Lab, CU & NYSPI</h3>
+                    <p>TEST SUMMARY FOR FIFER LAB</p>
                 </li>
                 <li>
-                    <span class="experience">KOSEC-Kodari Securities</span>
-                    <div class="summary">
-                            INSERT SUMMARY FOR KOSEC
-                    </div>
+                    <h3>KOSEC-Kodari Securities</h3>
+                    <p>TEST SUMMARY FOR KOSEC</p>
                 </li>
             </ol>
     </div>
@@ -239,7 +228,6 @@
 </div>
 
 <script>
-    // Projects: click on entire li
     const projects = document.querySelectorAll('#projects li');
     const modal = document.getElementById('modal');
     const modalContent = document.getElementById('modal-content');
@@ -254,11 +242,10 @@
         });
     });
 
-    // Experiences: click only on the experience span
     const experiences = document.querySelectorAll('#experiences .experience');
     experiences.forEach(experience => {
         experience.addEventListener('click', (e) => {
-            e.stopPropagation(); // Prevent event from bubbling to li
+            e.stopPropagation();
             const li = experience.closest('li');
             const summary = li.querySelector('.summary');
             if (summary) {
@@ -268,7 +255,6 @@
         });
     });
 
-    // Close modal if you click outside the modal content
     modal.addEventListener('click', (e) => {
         if (e.target === modal) {
             modal.style.display = 'none';
