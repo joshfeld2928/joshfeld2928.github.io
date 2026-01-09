@@ -1,5 +1,19 @@
 /*look here for graphics code: https://reactbits.dev/*/
 
+:root {
+    --primary: #6366f1;
+    --primary-light: #818cf8;
+    --primary-dark: #4f46e5;
+    --secondary: #ec4899;
+    --accent: #14b8a6;
+    --dark: #0f172a;
+    --dark-light: #1e293b;
+    --text-light: #f1f5f9;
+    --text-dark: #0f172a;
+    --card-bg: rgba(255, 255, 255, 0.08);
+    --card-border: rgba(255, 255, 255, 0.15);
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -7,13 +21,12 @@
 }
 
 html, body {
-    font-family:"Roboto", sans-serif;
-    line-height: 1.6;
-    color:black;
-    background-color:rgba(230, 233, 236, 0.5);
+    font-family: "Roboto", sans-serif;
+    line-height: 1.7;
+    color: var(--text-light);
+    background-color: var(--dark);
     height: 100%; 
     margin: 0;
-    height: 100%;
     min-height: 100%;
 }
 
@@ -126,29 +139,57 @@ section, div {
 }
 
 nav {
-    background-color:slategray;
-    padding: 1rem;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    background: rgba(15, 23, 42, 0.8);
+    backdrop-filter: blur(10px);
+    padding: 1.25rem 2rem;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 nav ul{
     list-style: none;
     display: flex;
     justify-content: center;
+    gap: 2rem;
 }
 
 nav ul li {
-    margin: 0 1rem;
+    margin: 0;
 }
 
 nav ul li a {
-    color: #fff;
+    color: var(--text-light);
     text-decoration: none;
-    font-weight: bold;
+    font-weight: 500;
+    font-size: 1.05rem;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+nav ul li a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background: linear-gradient(90deg, var(--primary), var(--secondary));
+    transition: all 0.3s ease;
+    transform: translateX(-50%);
 }
 
 nav ul li a:hover {
-    color: black;
+    color: var(--primary-light);
+    background: rgba(99, 102, 241, 0.1);
+}
+
+nav ul li a:hover::after {
+    width: 80%;
 }
 
 #home {
@@ -161,40 +202,121 @@ nav ul li a:hover {
     justify-content: center;
     align-items: center;
     text-align: center;
-    color: #3b393914;
+    color: var(--text-light);
+}
+
+#about {
+    padding: 4rem 2rem;
+    text-align: center;
 }
 
 #about img {
     display: block;
-    margin: 1rem auto;
+    margin: 2rem auto;
     border-radius: 50%;
-    border: 3px solid #fff;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    border: 4px solid var(--primary);
+    box-shadow: 0 8px 30px rgba(99, 102, 241, 0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+#about img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 12px 40px rgba(99, 102, 241, 0.4);
+}
+
+#about p {
+    max-width: 800px;
+    margin: 0 auto;
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: var(--text-light);
+    opacity: 0.95;
+}
+
+#projects, #experiences {
+    padding: 4rem 2rem;
+}
+
+#projects h2, #experiences h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 3rem;
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
 }
 
 #projects ul, #experiences ul {
     display: flex;
     flex-wrap: wrap;
-    gap: 1rem;
+    gap: 2rem;
     list-style: none;
     padding: 0;
+    justify-content: center;
+    max-width: 1400px;
+    margin: 0 auto;
 }
 
+#projects ul li, #experiences ul li {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
 
 #projects ul li:hover, #experiences ul li:hover {
-    transform: translateY(-5px);
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    transform: translateY(-8px);
 }
 
 #projects li {
-    flex: 0 0 calc(25% - 3rem); 
+    flex: 0 0 calc(25% - 2rem);
+    min-width: 160px;
+}
+
+#experiences li {
+    flex: 0 0 calc(33.333% - 2rem);
+    min-width: 200px;
 }
 
 #home h1 {
-    font-size: 3rem;
-    margin-bottom: 1rem;
+    font-size: 3.5rem;
+    margin-bottom: 1.5rem;
+    font-weight: 700;
+    background: linear-gradient(135deg, var(--primary-light), var(--secondary));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
 }
 
 #home p {
     font-size: 1.5rem;
+    opacity: 0.9;
+}
+
+#contact {
+    padding: 4rem 2rem;
+    text-align: center;
+    background: rgba(15, 23, 42, 0.5);
+    backdrop-filter: blur(10px);
+}
+
+#contact h2 {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+#contact a {
+    color: var(--primary-light);
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+    border-bottom: 2px solid transparent;
+}
+
+#contact a:hover {
+    color: var(--secondary);
+    border-bottom-color: var(--secondary);
 }

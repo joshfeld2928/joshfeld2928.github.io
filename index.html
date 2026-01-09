@@ -37,19 +37,42 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0,0,0,0.5); /* dim background */
+            background: rgba(0, 0, 0, 0.75); /* dim background */
+            backdrop-filter: blur(8px);
             justify-content: center;
             align-items: center;
             z-index: 1000;
+            animation: fadeIn 0.3s ease;
         }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
         .modal-content {
-            background: #f2f2f2;
-            padding: 20px;
-            border-radius: 8px;
-            max-width: 600px;
-            width: 80%;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            background: linear-gradient(135deg, rgba(30, 41, 59, 0.95), rgba(15, 23, 42, 0.95));
+            backdrop-filter: blur(20px);
+            color: #f1f5f9;
+            padding: 2.5rem;
+            border-radius: 20px;
+            max-width: 700px;
+            width: 85%;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(255, 255, 255, 0.1);
             position: relative;
+            line-height: 1.8;
+            animation: slideUp 0.3s ease;
+        }
+        
+        @keyframes slideUp {
+            from { 
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to { 
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
         .logo { /*for now just keep general logo class*/
             width: 60px;      
@@ -72,21 +95,43 @@
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        width: 140px;
-        height: 140px;
-        border-radius: 10%;
-        background: rgba(0, 0, 139, 0.2);
-        border: 2px solid black;
+        width: 160px;
+        height: 160px;
+        border-radius: 16px;
+        background: linear-gradient(135deg, rgba(99, 102, 241, 0.15), rgba(236, 72, 153, 0.15));
+        border: 1px solid rgba(255, 255, 255, 0.15);
+        backdrop-filter: blur(10px);
         font-weight: 600;
+        font-size: 0.95rem;
         text-align: center;
-        transition: transform 0.2s ease, box-shadow 0.2s ease;
+        transition: all 0.3s ease;
         box-sizing: border-box;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+        position: relative;
+        overflow: hidden;
     }
 
+        .project-name::before, .experience::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.3), rgba(236, 72, 153, 0.3));
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            z-index: -1;
+        }
 
         .project-name:hover, .experience:hover {
-            transform: scale(1.05);
-            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+            transform: scale(1.08) translateY(-4px);
+            box-shadow: 0 12px 40px rgba(99, 102, 241, 0.4);
+            border-color: rgba(99, 102, 241, 0.5);
+        }
+
+        .project-name:hover::before, .experience:hover::before {
+            opacity: 1;
         }
 
         #experiences, #projects {
@@ -135,34 +180,37 @@
     </header>
 
 <main>
-    <div id = 'about'> 
-        <img src = "images/linkprof.jpeg" alt = "Failed to Load Profile Picture" height = 250>
+    <div id="about"> 
+        <img src = "images/linkprof.jpeg" alt = "Failed to Load Profile Picture" height = 270>
         <p>
         Welcome to my website! My name is Joshua, I am a data science student eager to pursue roles where I can leverage machine learning 
         and mathematical modeling in real world applications such as the betterment of medical practices. 
-        Specifically, I have interests in Computational Neuroscience and Health Informatics.<br>
-        <!--note that despite this break the paragraph is still one big block of text on the website-->
-        <br> My projects and research experience span from statistical analysis and machine learning to database design.
-        <br>---THIS WEBSITE IS STILL IN DEVELOPMENT---
-    </p>
+        Specifically, I have interests in Computational Neuroscience and Health Informatics.
+        </p>
+        <p style="margin-top: 1.5rem;">
+        My projects and research experience span from statistical analysis and machine learning to database design.
+        </p>
+        <p style="margin-top: 1.5rem; font-style: italic; opacity: 0.7;">
+        This website is still in development
+        </p>
     </div>
 
     <div id="experiences">
         <h2>Experience</h2>
-            <ol>
+            <ul>
                 <li>
-                   <h3>Haefner Lab, UR</h3>
-                   <p>TEST SUMMARY FOR UR HAEFNER LAB</p>
+                   <div class="experience">Haefner Lab, UR</div>
+                   <div class="summary">TEST SUMMARY FOR UR HAEFNER LAB</div>
                 </li>
                 <li>
-                    <h3>Fifer Lab, CU & NYSPI</h3>
-                    <p>TEST SUMMARY FOR FIFER LAB</p>
+                    <div class="experience">Fifer Lab, CU & NYSPI</div>
+                    <div class="summary">TEST SUMMARY FOR FIFER LAB</div>
                 </li>
                 <li>
-                    <h3>KOSEC-Kodari Securities</h3>
-                    <p>TEST SUMMARY FOR KOSEC</p>
+                    <div class="experience">KOSEC-Kodari Securities</div>
+                    <div class="summary">TEST SUMMARY FOR KOSEC</div>
                 </li>
-            </ol>
+            </ul>
     </div>
 
 <!--main page: section 2, projects-->
@@ -221,10 +269,9 @@
     </div>
 
     <div id="contact">
-        <br>
         <h2>Contact</h2>
-        Email: joshfeld2928@gmail.com<br>
-        <a href="https://www.linkedin.com/in/joshua-feld-2b95a8271?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_contact_details%3BWOximt4QQQO8I8KUjWQMFQ%3D%3D">LinkedIn</a> 
+        <p style="font-size: 1.1rem; margin: 1.5rem 0;">Email: <a href="mailto:joshfeld2928@gmail.com" style="text-decoration: none;">joshfeld2928@gmail.com</a></p>
+        <p style="font-size: 1.1rem;"><a href="https://www.linkedin.com/in/joshua-feld-2b95a8271?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_contact_details%3BWOximt4QQQO8I8KUjWQMFq%3D%3D">LinkedIn Profile</a></p>
     </div>
 </main>
 
